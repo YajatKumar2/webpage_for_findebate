@@ -18,9 +18,7 @@ https://yajatkumar2.github.io/webpage_for_findebate/
 
 ## Contents
 
-- HTML source files
-- CSS styling files
-- JavaScript files
+- Source files
 - Assets used for the webpage
 
 ## Purpose
