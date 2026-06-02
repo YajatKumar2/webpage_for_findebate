@@ -1,0 +1,224 @@
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+.tag{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:500;letter-spacing:.07em;text-transform:uppercase;background:#E1F5EE;color:#0F6E56;border-radius:20px;padding:4px 10px;margin-bottom:1.25rem}
+h1{font-size:26px;font-weight:500;line-height:1.25;margin-bottom:.35rem}
+h1 span{color:var(--color-text-secondary);font-weight:400}
+.subtitle{font-size:14px;color:var(--color-text-secondary);margin-bottom:.3rem}
+.institution{font-size:12px;color:var(--color-text-tertiary);margin-bottom:1.5rem;display:flex;align-items:center;gap:6px}
+.institution::before{content:'';display:inline-block;width:4px;height:4px;border-radius:50%;background:var(--color-text-tertiary)}
+.btns{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:2rem}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:7px 14px;font-size:13px;font-weight:500;border-radius:var(--border-radius-md);text-decoration:none;border:1.5px solid transparent;transition:all .15s;white-space:nowrap;cursor:pointer}
+.btn i{font-size:14px}
+.btn-paper{background:#042C53;color:#E6F1FB;border-color:#042C53}
+.btn-paper:hover{background:#0C447C}
+.btn-code{background:#2C2C2A;color:#F1EFE8;border-color:#2C2C2A}
+.btn-code:hover{background:#444441}
+.btn-dataset{background:#E6F1FB;color:#0C447C;border-color:#B5D4F4}
+.btn-dataset:hover{background:#B5D4F4}
+.btn-demo{background:#EAF3DE;color:#27500A;border-color:#C0DD97}
+.btn-demo:hover{background:#C0DD97}
+.btn-slides{background:#FAEEDA;color:#633806;border-color:#FAC775}
+.btn-slides:hover{background:#FAC775}
+.btn-report{background:#FBEAF0;color:#72243E;border-color:#F4C0D1}
+.btn-report:hover{background:#F4C0D1}
+.divider{height:0.5px;background:var(--color-border-tertiary);margin:0 0 2rem}
+.section-label{font-size:11px;font-weight:500;color:var(--color-text-tertiary);letter-spacing:.08em;text-transform:uppercase;margin-bottom:.4rem}
+h2{font-size:17px;font-weight:500;margin-bottom:.65rem}
+p{font-size:14px;line-height:1.7;color:var(--color-text-secondary);margin-bottom:.9rem}
+p strong{color:var(--color-text-primary)}
+section{margin-bottom:2.5rem}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin:1.25rem 0}
+.stat{border-radius:var(--border-radius-md);padding:.875rem 1rem;border:1.5px solid transparent}
+.stat-0{background:#E1F5EE;border-color:#9FE1CB}.stat-0 .stat-num{color:#085041}
+.stat-1{background:#E6F1FB;border-color:#B5D4F4}.stat-1 .stat-num{color:#0C447C}
+.stat-2{background:#FAEEDA;border-color:#FAC775}.stat-2 .stat-num{color:#633806}
+.stat-3{background:#FBEAF0;border-color:#F4C0D1}.stat-3 .stat-num{color:#72243E}
+.stat-num{font-size:22px;font-weight:500;line-height:1;margin-bottom:4px}
+.stat-label{font-size:12px;font-weight:500;margin-bottom:3px}
+.stat-0 .stat-label{color:#085041}.stat-1 .stat-label{color:#0C447C}.stat-2 .stat-label{color:#633806}.stat-3 .stat-label{color:#72243E}
+.stat-desc{font-size:11px;line-height:1.4}
+.stat-0 .stat-desc{color:#0F6E56}.stat-1 .stat-desc{color:#185FA5}.stat-2 .stat-desc{color:#854F0B}.stat-3 .stat-desc{color:#993556}
+.agents{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:8px;margin:1.25rem 0}
+.agent{border-radius:var(--border-radius-md);padding:.75rem 1rem;border:1.5px solid transparent}
+.a0{background:#E1F5EE;border-color:#9FE1CB}.a0 .agent-icon,.a0 .agent-name{color:#085041}.a0 .agent-desc{color:#0F6E56}
+.a1{background:#E6F1FB;border-color:#B5D4F4}.a1 .agent-icon,.a1 .agent-name{color:#0C447C}.a1 .agent-desc{color:#185FA5}
+.a2{background:#EEEDFE;border-color:#CECBF6}.a2 .agent-icon,.a2 .agent-name{color:#3C3489}.a2 .agent-desc{color:#534AB7}
+.a3{background:#FAEEDA;border-color:#FAC775}.a3 .agent-icon,.a3 .agent-name{color:#633806}.a3 .agent-desc{color:#854F0B}
+.a4{background:#FCEBEB;border-color:#F7C1C1}.a4 .agent-icon,.a4 .agent-name{color:#791F1F}.a4 .agent-desc{color:#A32D2D}
+.agent-icon{font-size:16px;margin-bottom:6px}
+.agent-name{font-size:13px;font-weight:500;margin-bottom:3px}
+.agent-desc{font-size:11px;line-height:1.4}
+.table-wrap{border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);overflow:hidden;margin-top:1rem}
+table{width:100%;border-collapse:collapse;font-size:13px}
+thead{background:var(--color-background-secondary)}
+thead th{text-align:left;font-size:11px;font-weight:500;color:var(--color-text-tertiary);letter-spacing:.05em;text-transform:uppercase;padding:9px 12px;border-bottom:0.5px solid var(--color-border-tertiary)}
+thead th:not(:first-child){text-align:center}
+tbody tr{border-bottom:0.5px solid var(--color-border-tertiary)}
+tbody tr:last-child{border-bottom:none}
+tbody tr:hover{background:var(--color-background-secondary)}
+tbody td{padding:9px 12px;color:var(--color-text-secondary)}
+.td-model{font-weight:500;color:var(--color-text-primary)}
+.td-best{font-weight:500;color:#0C447C;text-align:center;background:#E6F1FB}
+.td-gain{text-align:center;font-weight:500}
+.g-hi{color:#085041}.g-lo{color:#185FA5}
+tbody td:not(:first-child):not(.td-best):not(.td-gain){text-align:center}
+.badge{display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:500;padding:3px 8px;border-radius:20px}
+.badge-teal{background:#E1F5EE;color:#085041}
+.badge-blue{background:#E6F1FB;color:#0C447C}
+.pipeline{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin:1rem 0 1.25rem;padding:1rem;background:var(--color-background-secondary);border-radius:var(--border-radius-lg);border:0.5px solid var(--color-border-tertiary)}
+.pipe-step{display:flex;align-items:center;gap:6px;padding:6px 10px;border-radius:var(--border-radius-md);font-size:12px;font-weight:500;border:1px solid transparent}
+.pipe-arr{color:var(--color-text-tertiary);font-size:12px}
+.p0{background:#E1F5EE;color:#085041;border-color:#9FE1CB}
+.p1{background:#E6F1FB;color:#0C447C;border-color:#B5D4F4}
+.p2{background:#EEEDFE;color:#3C3489;border-color:#CECBF6}
+.p3{background:#FAEEDA;color:#633806;border-color:#FAC775}
+.p4{background:#EAF3DE;color:#27500A;border-color:#C0DD97}
+footer{font-size:12px;color:var(--color-text-tertiary);padding-top:1.25rem;border-top:0.5px solid var(--color-border-tertiary);margin-top:.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.footer-badges{display:flex;gap:6px;flex-wrap:wrap}
+</style>
+
+<h2 class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)">FinDebate project page with results and architecture</h2>
+
+<div style="padding:1.5rem 0 0">
+  <div class="tag"><i class="ti ti-flask" aria-hidden="true" style="font-size:12px"></i> Research project · Team 17</div>
+
+  <h1>FinDebate: <span>Multi-Agent Collaborative Intelligence for Financial Analysis</span></h1>
+  <div class="subtitle">Retrieval-Augmented Multi-Agent Framework for Institutional Financial Reasoning</div>
+  <div class="institution">Department of Computer Science · Mahindra University</div>
+
+  <div class="btns">
+    <a href="https://arxiv.org/pdf/2509.17395" class="btn btn-paper">
+      <i class="ti ti-file-text" aria-hidden="true"></i> Paper
+    </a>
+    <a href="https://github.com/sreekruthy/findebate" class="btn btn-code" target="_blank">
+      <i class="ti ti-brand-github" aria-hidden="true"></i> Code
+    </a>
+    <a href="https://github.com/sreekruthy/findebate/blob/main/RAG/Earnings2Insights.zip" class="btn btn-dataset">
+      <i class="ti ti-database" aria-hidden="true"></i> Dataset
+    </a>
+    <a href="https://drive.google.com/file/d/1qP8cnoZtogfcxjuIbVJvX-OSeIPxppN2/view?usp=sharing" class="btn btn-demo">
+      <i class="ti ti-player-play" aria-hidden="true"></i> Demo
+    </a>
+    <a href="https://mahindraecolecentrale-my.sharepoint.com/:p:/r/personal/nidhi_goyal_mahindrauniversity_edu_in/_layouts/15/Doc.aspx?sourcedoc=%7BD8B84029-36D3-4633-BBD7-5CF2F4FAB9AD%7D&file=Multi-Agent-Collaborative-Intelligence-for-Financial-Analysis.pptx&action=edit&mobileredirect=true/" class="btn btn-slides">
+      <i class="ti ti-device-desktop" aria-hidden="true"></i> Slides
+    </a>
+    <a href="https://www.overleaf.com/read/vgqwmfpgzdvs#751e4c" class="btn btn-report">
+      <i class="ti ti-file-description" aria-hidden="true"></i> Report
+    </a>
+  </div>
+
+  <div class="divider"></div>
+
+  <section>
+    <div class="section-label">Overview</div>
+    <h2>Abstract</h2>
+    <p>FinDebate is a retrieval-augmented multi-agent framework designed for institutional-style financial analysis from earnings call transcripts. The system combines domain-specific retrieval, specialized financial analyst agents, and a collaborative debate mechanism to improve report quality, factual grounding, and investment consistency.</p>
+    <p>Evaluated on 64 Earnings2Insights transcripts across five large language models, FinDebate achieves consistent improvements averaging approximately <strong>+0.14 score points</strong> over zero-shot baselines on a four-point evaluation scale.</p>
+
+    <div class="stats">
+      <div class="stat stat-0">
+        <div class="stat-num">64</div>
+        <div class="stat-label">ECTSum transcripts</div>
+        <div class="stat-desc">Earnings calls used for evaluation</div>
+      </div>
+      <div class="stat stat-1">
+        <div class="stat-num">7,265</div>
+        <div class="stat-label">Indexed chunks</div>
+        <div class="stat-desc">6,963 ECTSum + 302 Apple/Tesla</div>
+      </div>
+      <div class="stat stat-2">
+        <div class="stat-num">5</div>
+        <div class="stat-label">Specialist agents</div>
+        <div class="stat-desc">Earnings · Market · Sentiment · Valuation · Risk</div>
+      </div>
+      <div class="stat stat-3">
+        <div class="stat-num">+0.14</div>
+        <div class="stat-label">Average gain</div>
+        <div class="stat-desc">Over zero-shot baselines</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-label">Architecture</div>
+    <h2>Pipeline overview</h2>
+    <p>A multi-stage financial reasoning pipeline from domain-specific retrieval through collaborative multi-agent analysis, debate refinement, and institutional evaluation.</p>
+
+    <div class="pipeline">
+      <div class="pipe-step p0"><i class="ti ti-database" aria-hidden="true" style="font-size:13px"></i> RAG retrieval</div>
+      <span class="pipe-arr">›</span>
+      <div class="pipe-step p1"><i class="ti ti-users" aria-hidden="true" style="font-size:13px"></i> Agent analysis</div>
+      <span class="pipe-arr">›</span>
+      <div class="pipe-step p2"><i class="ti ti-messages" aria-hidden="true" style="font-size:13px"></i> Debate round</div>
+      <span class="pipe-arr">›</span>
+      <div class="pipe-step p3"><i class="ti ti-file-analytics" aria-hidden="true" style="font-size:13px"></i> Synthesis</div>
+      <span class="pipe-arr">›</span>
+      <div class="pipe-step p4"><i class="ti ti-chart-line" aria-hidden="true" style="font-size:13px"></i> Report</div>
+    </div>
+
+    <div class="agents">
+      <div class="agent a0">
+        <div class="agent-icon"><i class="ti ti-trending-up" aria-hidden="true"></i></div>
+        <div class="agent-name">Earnings analyst</div>
+        <div class="agent-desc">Revenue, profitability, EPS trends</div>
+      </div>
+      <div class="agent a1">
+        <div class="agent-icon"><i class="ti ti-chart-bar" aria-hidden="true"></i></div>
+        <div class="agent-name">Market predictor</div>
+        <div class="agent-desc">1-day, 1-week, 1-month forecasts</div>
+      </div>
+      <div class="agent a2">
+        <div class="agent-icon"><i class="ti ti-brain" aria-hidden="true"></i></div>
+        <div class="agent-name">Sentiment analyst</div>
+        <div class="agent-desc">Management tone & behavioral finance</div>
+      </div>
+      <div class="agent a3">
+        <div class="agent-icon"><i class="ti ti-coins" aria-hidden="true"></i></div>
+        <div class="agent-name">Valuation analyst</div>
+        <div class="agent-desc">DCF valuation & fair value</div>
+      </div>
+      <div class="agent a4">
+        <div class="agent-icon"><i class="ti ti-shield-exclamation" aria-hidden="true"></i></div>
+        <div class="agent-name">Risk analyst</div>
+        <div class="agent-desc">Credit, liquidity & market risk</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-label">Evaluation</div>
+    <h2>Benchmark results</h2>
+    <p>FinDebate consistently improves financial report quality across all base models, with gains from +0.10 to +0.23 on the four-point scale.</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Model</th>
+            <th>Zero-shot</th>
+            <th>RAG</th>
+            <th>Multi-agent</th>
+            <th>FinDebate</th>
+            <th>Gain</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="td-model">Gemini 2.5 Flash</td><td>3.57</td><td>3.49</td><td>3.70</td><td class="td-best">3.70</td><td class="td-gain g-lo">+0.13</td></tr>
+          <tr><td class="td-model">Llama 4 Maverick</td><td>3.55</td><td>3.49</td><td>3.68</td><td class="td-best">3.69</td><td class="td-gain g-lo">+0.14</td></tr>
+          <tr><td class="td-model">DeepSeek-R1</td><td>3.63</td><td>3.51</td><td>3.70</td><td class="td-best">3.74</td><td class="td-gain g-lo">+0.11</td></tr>
+          <tr><td class="td-model">Claude Sonnet 4</td><td>3.50</td><td>3.55</td><td>3.70</td><td class="td-best">3.73</td><td class="td-gain g-hi">+0.23</td></tr>
+          <tr><td class="td-model">GPT-4o / Gemini-Pro</td><td>3.61</td><td>3.49</td><td>3.73</td><td class="td-best">3.71</td><td class="td-gain g-lo">+0.10</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <footer>
+    <span>FinDebate · Mahindra University · 2025</span>
+    <div class="footer-badges">
+      <span class="badge badge-teal"><i class="ti ti-license" aria-hidden="true" style="font-size:11px"></i> arXiv preprint</span>
+      <span class="badge badge-blue"><i class="ti ti-brand-github" aria-hidden="true" style="font-size:11px"></i> Open source</span>
+    </div>
+  </footer>
+</div>
